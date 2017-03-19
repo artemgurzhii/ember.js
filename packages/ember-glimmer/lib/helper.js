@@ -49,7 +49,7 @@ export const RECOMPUTE_TAG = symbol('RECOMPUTE_TAG');
   @public
   @since 1.13.0
 */
-var Helper = FrameworkObject.extend({
+let Helper = FrameworkObject.extend({
   isHelperInstance: true,
 
   init() {

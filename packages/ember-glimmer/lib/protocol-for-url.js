@@ -34,18 +34,16 @@ export default function installProtocolForURL(environment) {
 }
 
 function browserProtocolForURL(url) {
-  if (!parsingNode) {
-    parsingNode = document.createElement('a');
-  }
-
+  parsingNode = parsingNode || document.createElement('a');
   parsingNode.href = url;
+
   return parsingNode.protocol;
 }
 
 function nodeProtocolForURL(url) {
-  let protocol = null;
   if (typeof url === 'string') {
-    protocol = nodeURL.parse(url).protocol;
+    return nodeURL.parse(url).protocol;
   }
-  return (protocol === null) ? ':' : protocol;
+
+  return ':';
 }

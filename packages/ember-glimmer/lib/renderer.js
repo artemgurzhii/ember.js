@@ -202,7 +202,7 @@ class Renderer {
 
   register(view) {
     let id = getViewId(view);
-    assert('Attempted to register a view with an id already in use: ' + id, !this._viewRegistry[id]);
+    assert(`Attempted to register a view with an id already in use: ${id}`, !this._viewRegistry[id]);
     this._viewRegistry[id] = view;
   }
 

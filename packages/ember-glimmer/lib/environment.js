@@ -79,7 +79,7 @@ export default class Environment extends GlimmerEnvironment {
       let expandedName = source && owner._resolveLocalLookupName(name, source) || name;
       let ownerGuid = guidFor(owner);
 
-      return ownerGuid + '|' + expandedName;
+      return `${ownerGuid}|${expandedName}`;
     });
 
     this._templateCache = new Cache(1000, ({ Template, owner }) => {
@@ -160,11 +160,13 @@ export default class Environment extends GlimmerEnvironment {
   // a Compiler can wrap the template so it needs its own cache
   getCompiledBlock(Compiler, template) {
     let compilerCache = this._compilerCache.get(Compiler);
+
     return compilerCache.get(template);
   }
 
   hasPartial(name, symbolTable) {
     let { owner } = symbolTable.getMeta();
+
     return hasPartial(name, owner);
   }
 

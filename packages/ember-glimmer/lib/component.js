@@ -636,6 +636,7 @@ const Component = CoreView.extend(
      */
     readDOMAttr(name) {
       let element = getViewElement(this);
+
       return readDOMAttr(element, name);
     }
 

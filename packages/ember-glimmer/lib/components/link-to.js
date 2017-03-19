@@ -537,9 +537,11 @@ const LinkComponent = EmberComponent.extend({
       return false;
     },
     set(key, value) {
-      if (value !== undefined) { this.set('_isDisabled', value); }
+      if (value !== undefined) {
+        this.set('_isDisabled', value);
+      }
 
-      return value ? get(this, 'disabledClass') : false;
+      // return value ? get(this, 'disabledClass') : false;
     }
   }),
 

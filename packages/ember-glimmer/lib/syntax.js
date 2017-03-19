@@ -32,6 +32,7 @@ function refineInlineSyntax(path, params, hash, builder) {
   if (definition) {
     wrapComponentClassAttribute(hash);
     builder.component.static(definition, [params, hash, null, null], symbolTable);
+
     return true;
   }
 
